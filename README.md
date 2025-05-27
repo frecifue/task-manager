@@ -12,7 +12,6 @@ Esta es una API desarrollada en Node.js + Express que permite gestionar una list
 
 - CRUD completo de tareas.
 - Eventos en tiempo real para:
-  - Ver todas las tareas
   - Nueva tarea (`newTask`)
   - Actualización de estado (`taskUpdated`)
   - Eliminación de tarea (`taskDeleted`)
@@ -25,7 +24,7 @@ Esta es una API desarrollada en Node.js + Express que permite gestionar una list
 1. Clona el repositorio:
 
 ```bash
-git clone <REPO_URL>
+git clone <https://github.com/frecifue/task-manager.git>
 cd task-manager
 ```
 
