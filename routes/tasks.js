@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const TaskModel = require('../models/taskModel');
 
-// GET /tasks ? Obtener todas las tareas
+// GET /tasks  Obtener todas las tareas
 router.get('/', (req, res) => {
   TaskModel.getAll((err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
@@ -10,12 +10,16 @@ router.get('/', (req, res) => {
   });
 });
 
-// POST /tasks ? Crear nueva tarea
+// POST /tasks  Crear nueva tarea
 router.post('/', (req, res) => {
   const { titulo, descripcion } = req.body;
 
   if (!titulo || titulo.length > 100) {
     return res.status(400).json({ error: 'Título es obligatorio y debe tener máximo 100 caracteres.' });
+  }
+
+  if (descripcion && descripcion.length > 500) {
+    return res.status(400).json({ error: 'La descripción debe tener máximo 500 caracteres.' });
   }
 
   TaskModel.create({ titulo, descripcion }, (err, task) => {
@@ -28,7 +32,7 @@ router.post('/', (req, res) => {
   });
 });
 
-// PUT /tasks/:id ? Actualizar estado de una tarea
+// PUT /tasks/:id  Actualizar estado de una tarea
 router.put('/:id', (req, res) => {
   const { status } = req.body;
   const id = req.params.id;
@@ -57,7 +61,7 @@ router.put('/:id', (req, res) => {
   
 });
 
-// DELETE /tasks/:id ? Eliminar tarea
+// DELETE /tasks/:id  Eliminar tarea
 router.delete('/:id', (req, res) => {
   const id = req.params.id;
 
@@ -72,7 +76,7 @@ router.delete('/:id', (req, res) => {
         if (err) return res.status(500).json({ error: err.message });
 
         req.io.emit('taskDeleted', { id: parseInt(id) });
-        res.status(204).send();
+        res.status(200).json({msg: `tarea ${id} eliminada`});
     });
   });
 

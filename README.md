@@ -2,7 +2,7 @@
 
 Esta es una API desarrollada en Node.js + Express que permite gestionar una lista de tareas ("To-Do List") en tiempo real utilizando WebSockets (Socket.IO).
 
-## Stack Utilizado
+## Tecnologías Utilizadas
 - Node.js
 - Express
 - WebSockets (Socket.IO)
@@ -44,7 +44,7 @@ npm run dev
 ## Ejecución
 
 - dirigete a exports/
-- encontrarás un exportable con todos los endpoints operativos
+- encontrarás un exportable con todos los endpoints operativos disponibles para insomnia
 
 
 ## Probar WebSockets
@@ -61,11 +61,11 @@ http://localhost:3000
 ## Desiciones de diseño
 
 - Se utiliza una estructura simple que contiene 
-    - db
+    - db/
         - contiene la conexion a la base de datos SQLite con la creación inmediata de la tabla task
-    - models
-        - contiene las consultas SQL a ejecutar necesarias para el CRUD solicitado
-    - routes
-        - contiene las rutas Express de task necesarias para utilizar los endpoints
-    - public
-        - html básico con js para comprobar la implementación de los sockets
+    - models/
+        - Contiene las consultas SQL a ejecutar necesarias para el CRUD de tareas
+    - routes/
+        - Contiene las rutas Express de /task, necesarias para utilizar los endpoints
+    - public/
+        - Contiene HTML básico con javascript para comprobar la implementación de los sockets
