@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.io - Lista de Tareas</title>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+  <h1>Conexión WebSocket</h1>
+  <ul id="eventLog"></ul>
+
+  <script>
+    const socket = io('http://localhost:3000');
+    const log = (msg) => {
+      const li = document.createElement('li');
+      li.textContent = msg;
+      document.getElementById('eventLog').appendChild(li);
+    };
+
+    socket.on('connect', () => log('Conectado a WebSocket'));
+
+    socket.on('newTask', (data) => {
+      log('Nueva tarea: ' + JSON.stringify(data));
+    });
+
+    socket.on('taskUpdated', (data) => {
+      log('tarea actualizada: ' + JSON.stringify(data));
+    });
+
+    socket.on('taskDeleted', (data) => {
+      log('tarea eliminada: ' + JSON.stringify(data));
+    });
+  </script>
+</body>
+</html>
