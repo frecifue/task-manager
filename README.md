@@ -41,7 +41,7 @@ npm install
 npm run dev
 ```
 
-## Ejecución
+## Exportable de Insomnia
 
 - dirigete a exports/
 - encontrarás un exportable con todos los endpoints operativos disponibles para insomnia
