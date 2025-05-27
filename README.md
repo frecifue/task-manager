@@ -24,7 +24,7 @@ Esta es una API desarrollada en Node.js + Express que permite gestionar una list
 1. Clona el repositorio:
 
 ```bash
-git clone <https://github.com/frecifue/task-manager.git>
+git clone https://github.com/frecifue/task-manager.git
 cd task-manager
 ```
 
