@@ -58,7 +58,7 @@ http://localhost:3000
 - Verás una lista que se actualiza dinámicamente con los eventos del sistema.
 
 
-## Desiciones de diseño
+## Decisiones de diseño
 
 - Se utiliza una estructura simple que contiene 
     - db/
